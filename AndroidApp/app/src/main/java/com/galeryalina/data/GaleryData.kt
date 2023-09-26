@@ -47,7 +47,7 @@ data class Author(
  * Static data
  */
 
-const val BASE_URL = "https://raw.githubusercontent.com/app-z/RosesGallery/main/"
+const val BASE_URL = "https://raw.githubusercontent.com/app-z/RosesGallery/main/server/"
 
 const val AUTHORS_URL = "feed_authors.json"
 const val PICTURES_URL = "feed_pictures.json"
@@ -90,7 +90,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 1,
         name = "Картина 1",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/petunin_paint1.jpeg",
+        imageUrl = "$BASE_URL/images/petunin_paint1.jpeg",
         price = 299
     ),
     PictureEntity(
@@ -98,7 +98,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 1,
         name = "Картина 2",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/petunin_paint2.jpeg",
+        imageUrl = "$BASE_URL/images/petunin_paint2.jpeg",
         price = 299
     ),
     PictureEntity(
@@ -106,7 +106,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 1,
         name = "Картина 3",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/petunin_paint3.jpeg",
+        imageUrl = "$BASE_URL/images/petunin_paint3.jpeg",
         price = 299
     ),
     PictureEntity(
@@ -114,7 +114,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 1,
         name = "Картина 4",
         tagline = "#Лента",
-        imageUrl = "$BASE_URL/petunin_paint4.jpeg",
+        imageUrl = "$BASE_URL/images/petunin_paint4.jpeg",
         isUnique = true,
         price = 400000
     ),
@@ -123,7 +123,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 1,
         name = "Картина 5",
         tagline = "#Море",
-        imageUrl = "$BASE_URL/petunin_paint5.jpeg",
+        imageUrl = "$BASE_URL/images/petunin_paint5.jpeg",
         price = 499
     ),
     PictureEntity(
@@ -131,7 +131,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 2,
         name = "Картина 6",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/modern1.jpg",
+        imageUrl = "$BASE_URL/images/modern1.jpg",
         price = 299
     ),
     PictureEntity(
@@ -139,7 +139,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 2,
         name = "Картина 7",
         tagline = "#Холст #Модерн",
-        imageUrl = "$BASE_URL/modern2.jpg",
+        imageUrl = "$BASE_URL/images/modern2.jpg",
         price = 1299
     ),
     PictureEntity(
@@ -147,7 +147,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 2,
         name = "Картина 8",
         tagline = "Модерн",
-        imageUrl = "$BASE_URL/modern3.jpg",
+        imageUrl = "$BASE_URL/images/modern3.jpg",
         price = 299
     ),
     PictureEntity(
@@ -155,7 +155,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 2,
         name = "Картина 9",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/modern4.jpg",
+        imageUrl = "$BASE_URL/images/modern4.jpg",
         price = 549
     ),
     PictureEntity(
@@ -163,7 +163,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 2,
         name = "Картина 10",
         tagline = "#Модерн",
-        imageUrl = "$BASE_URL/modern5.jpg",
+        imageUrl = "$BASE_URL/images/modern5.jpg",
         price = 299
     ),
     PictureEntity(
@@ -171,7 +171,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 3,
         name = "Картина 10",
         tagline = "#Примитивизм",
-        imageUrl = "$BASE_URL/prim1.jpg",
+        imageUrl = "$BASE_URL/images/prim1.jpg",
         price = 299
     ),
     PictureEntity(
@@ -179,7 +179,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 3,
         name = "Картина 12",
         tagline = "#Примитивизм",
-        imageUrl = "$BASE_URL/prim2.jpg",
+        imageUrl = "$BASE_URL/images/prim2.jpg",
         price = 299
     ),
     PictureEntity(
@@ -187,7 +187,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 3,
         name = "Картина 13",
         tagline = "#Примитивизм",
-        imageUrl = "$BASE_URL/prim3.jpg",
+        imageUrl = "$BASE_URL/images/prim3.jpg",
         price = 299
     ),
     PictureEntity(
@@ -195,7 +195,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 4,
         name = "Картина 14",
         tagline = "#Примитивизм",
-        imageUrl = "$BASE_URL/prim4.jpg",
+        imageUrl = "$BASE_URL/images/prim4.jpg",
         price = 2990
     ),
     PictureEntity(
@@ -203,7 +203,7 @@ val pictures = listOf<PictureEntity>(
         authorId = 4,
         name = "Картина 15",
         tagline = "#Примитивизм",
-        imageUrl = "$BASE_URL/prim5.jpg",
+        imageUrl = "$BASE_URL/images/prim5.jpg",
         price = 299
     )
 )

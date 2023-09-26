@@ -6,7 +6,7 @@ import com.galeryalina.data.common.ResponseResult
 import kotlinx.coroutines.flow.Flow
 
 interface GalleryRepository {
-    suspend fun getAllPictures(): Flow<ResponseResult<List<Picture>>>
-    suspend fun getPicturesByAuthor(authorId: Int): Flow<ResponseResult<List<Picture>>>
-    suspend fun getAuthors(): Flow<ResponseResult<List<Author>>>
+    fun getAllPictures(): Flow<ResponseResult<List<Picture>>>
+    fun getPicturesByAuthor(authorId: Int): Flow<ResponseResult<List<Picture>>>
+    fun getAuthors(): Flow<ResponseResult<List<Author>>>
 }

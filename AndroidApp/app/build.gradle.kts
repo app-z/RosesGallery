@@ -3,20 +3,15 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
-    // id("com.google.dagger:hilt-android-gradle-plugin:${libs.versions.hilt.get()}")
-//    id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
 }
-//kapt {
-//    correctErrorTypes = true
-//    useBuildCache = true
-//}
-//
-//dependencies {
-//    implementation(libs.dagger.hilt.android)
-//    kapt(libs.dagger.hilt.compiler)
-//}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
 
 android {
     namespace = "com.galeryalina"
@@ -106,12 +101,14 @@ dependencies {
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.ui.util)
     implementation(libs.androidx.compose.material)
+    implementation("androidx.compose.material3:material3")
     implementation(libs.androidx.compose.animation)
     implementation(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.compose.ui.tooling.preview)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-////    implementation(libs.coil.kt.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil)
 
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment.ktx)

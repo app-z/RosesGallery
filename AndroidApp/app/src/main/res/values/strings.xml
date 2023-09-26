@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GaleryAlina</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_pictures">Pictures</string>
+    <string name="title_authors">Authors</string>
     <string name="title_notifications">Notifications</string>
 
     <string name="error_unexpected_message">Unexpected error occurred. We are working on it.</string>

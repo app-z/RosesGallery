@@ -18,7 +18,7 @@ class GalleryRepositoryImpl constructor(
     private val remoteDataSource: RemoteDataSource, private val localDataSource: LocalDataSource
 ) : GalleryRepository {
 
-    override suspend fun getPicturesByAuthor(authorId: Int): Flow<ResponseResult<List<Picture>>> {
+    override fun getPicturesByAuthor(authorId: Int): Flow<ResponseResult<List<Picture>>> {
         return flow {
             if (localDataSource.getPicturesByAuthor(authorId).isNotEmpty()) {
                 Timber.d(">>>> RepositoryImpl : authorId = $authorId")
@@ -40,7 +40,7 @@ class GalleryRepositoryImpl constructor(
         }.flowOn(Dispatchers.IO).onFlowStarts()
     }
 
-    override suspend fun getAuthors(): Flow<ResponseResult<List<Author>>> {
+    override fun getAuthors(): Flow<ResponseResult<List<Author>>> {
         return flow {
             if (localDataSource.getAllAuthors().isNotEmpty()) {
                 localDataSource.getAllAuthors().map {
@@ -64,7 +64,7 @@ class GalleryRepositoryImpl constructor(
         }.flowOn(Dispatchers.IO).onFlowStarts()
     }
 
-    override suspend fun getAllPictures(): Flow<ResponseResult<List<Picture>>> {
+    override fun getAllPictures(): Flow<ResponseResult<List<Picture>>> {
         return flow {
             if (localDataSource.getAllPictures().isNotEmpty()) {
                 Timber.d(">>>> RepositoryImpl : getAllPictures")
