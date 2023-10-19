@@ -13,10 +13,10 @@ import com.galeryalina.data.pictures
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [PictureEntity::class, AuthorsEntity::class], version = 7)
+@Database(entities = [PictureEntity::class, AuthorsEntity::class], version = 8)
 @TypeConverters(Converters::class)
 abstract class GaleryDatabase : RoomDatabase() {
-    abstract fun dao(): GaleryDao
+    abstract fun dao(): GalleryDao
 
     companion object {
         @Volatile

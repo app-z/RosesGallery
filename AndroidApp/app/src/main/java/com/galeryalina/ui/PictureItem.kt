@@ -1,17 +1,14 @@
 package com.galeryalina.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,7 +30,7 @@ interface RowClick {
 }
 
 @Composable
-fun PictureCard(picture: Picture, clicker: RowClick?) {
+fun PictureItem_(picture: Picture, clicker: RowClick?) {
     Row(modifier = Modifier.padding(all = 8.dp).clickable{
         clicker?.onClick(picture.id)
     }) {
@@ -43,11 +40,11 @@ fun PictureCard(picture: Picture, clicker: RowClick?) {
             placeholder = painterResource(R.drawable.pictire_boat_icon_24_dark),
             model = picture.imageUrl,
             contentDescription = null,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.FillWidth,
             modifier = Modifier
                 .size(40.dp, 60.dp)
                 .clip(RoundedCornerShape(percent = 10))
-                .aspectRatio(0.8F)
+                //.aspectRatio(0.8F)
                 .border(1.5.dp,
                     MaterialTheme.colorScheme.primary,
                     RoundedCornerShape(percent = 10))
@@ -70,7 +67,7 @@ fun PictureCard(picture: Picture, clicker: RowClick?) {
 @Preview
 @Composable
 fun PreviewMessageCard() {
-    PictureCard(picture =
+    PictureItem_(picture =
     Picture(1,
         2, "Author",
         "http",

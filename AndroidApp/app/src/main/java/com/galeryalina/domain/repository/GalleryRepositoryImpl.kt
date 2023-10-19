@@ -1,12 +1,12 @@
 package com.galeryalina.domain.repository
 
 import com.galeryalina.data.Author
-import com.galeryalina.local.LocalDataSource
 import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
 import com.galeryalina.data.common.onFlowStarts
 import com.galeryalina.data.mapToDomain
 import com.galeryalina.data.mapToEntity
+import com.galeryalina.local.LocalDataSource
 import com.galeryalina.remote.RemoteDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +22,10 @@ class GalleryRepositoryImpl constructor(
         return flow {
             if (localDataSource.getPicturesByAuthor(authorId).isNotEmpty()) {
                 Timber.d(">>>> RepositoryImpl : authorId = $authorId")
-                emit(ResponseResult.Success(localDataSource.getPicturesByAuthor(authorId).map { it.mapToDomain() }))
+                emit(
+                    ResponseResult.Success(
+                        localDataSource.getPicturesByAuthor(authorId).map { it.mapToDomain() })
+                )
             } else {
                 remoteDataSource.getPictures().run {
                     when (this) {
@@ -30,9 +33,11 @@ class GalleryRepositoryImpl constructor(
                             localDataSource.insertPicture(response.map { it.mapToEntity() })
                             emit(ResponseResult.Success(response.map { it.mapToDomain() }))
                         }
+
                         is ResponseResult.Error -> {
                             emit(ResponseResult.Error(exception))
                         }
+
                         else -> {}
                     }
                 }
@@ -46,17 +51,22 @@ class GalleryRepositoryImpl constructor(
                 localDataSource.getAllAuthors().map {
                     it.mapToDomain()
                 }
-                emit(ResponseResult.Success(localDataSource.getAllAuthors().map { it.mapToDomain() }))
+                emit(
+                    ResponseResult.Success(
+                        localDataSource.getAllAuthors().map { it.mapToDomain() })
+                )
             } else {
-                    remoteDataSource.getAuthors().run {
+                remoteDataSource.getAuthors().run {
                     when (this) {
                         is ResponseResult.Success -> {
                             localDataSource.insertAuthor(response.map { it.mapToEntity() })
                             emit(ResponseResult.Success(response.map { it.mapToDomain() }))
                         }
+
                         is ResponseResult.Error -> {
                             emit(ResponseResult.Error(exception))
                         }
+
                         else -> {}
                     }
                 }
@@ -68,7 +78,10 @@ class GalleryRepositoryImpl constructor(
         return flow {
             if (localDataSource.getAllPictures().isNotEmpty()) {
                 Timber.d(">>>> RepositoryImpl : getAllPictures")
-                emit(ResponseResult.Success(localDataSource.getAllPictures().map { it.mapToDomain() }))
+                emit(
+                    ResponseResult.Success(
+                        localDataSource.getAllPictures().map { it.mapToDomain() })
+                )
             } else {
                 remoteDataSource.getPictures().run {
                     when (this) {
@@ -76,13 +89,25 @@ class GalleryRepositoryImpl constructor(
                             localDataSource.insertPicture(response.map { it.mapToEntity() })
                             emit(ResponseResult.Success(response.map { it.mapToDomain() }))
                         }
+
                         is ResponseResult.Error -> {
                             emit(ResponseResult.Error(exception))
                         }
+
                         else -> {}
                     }
                 }
             }
+        }.flowOn(Dispatchers.IO).onFlowStarts()
+    }
+
+    override fun getPicturesById(pictureId: Int): Flow<ResponseResult<Picture?>> {
+        return flow {
+            emit(
+                ResponseResult.Success(
+                    localDataSource.getPicturesById(pictureId).mapToDomain()
+                )
+            )
         }.flowOn(Dispatchers.IO).onFlowStarts()
     }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.galeryalina.ui.home.PicturesFragment"
         android:label="@string/title_pictures"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_picture_detail"
+            app:destination="@id/navigation_picture_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +26,17 @@
         android:name="com.galeryalina.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_picture_detail"
+        android:name="com.galeryalina.ui.home.PictureDetailFragment"
+        android:label="@string/title_picture_detail"
+        tools:layout="@layout/fragment_picture_detail">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:action="PICTURE_DETAIL"
+            android:autoVerify="true"
+            app:uri="android-app://androidx.navigation.app/profile/{pictureId}" />
+    </fragment>
+
 </navigation>

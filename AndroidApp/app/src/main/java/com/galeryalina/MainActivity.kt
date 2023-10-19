@@ -3,6 +3,10 @@ package com.galeryalina
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
+import androidx.core.os.bundleOf
+import androidx.navigation.NavController
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -15,11 +19,19 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() { //ComponentActivity
 
-    @Inject
-    lateinit var getGalleryUseCase: GetGalleryUseCase
-
-
     private lateinit var binding: ActivityMainBinding
+
+
+    var navController: NavController? = null
+
+    fun navigateToDetail(id: Int) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://androidx.navigation.app/profile/$id".toUri())
+            .build()
+//        val bundle = bundleOf("amount" to id)
+
+        navController?.navigate(request)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +41,7 @@ class MainActivity : AppCompatActivity() { //ComponentActivity
 
         val navView: BottomNavigationView = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -38,7 +50,7 @@ class MainActivity : AppCompatActivity() { //ComponentActivity
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        navView.setupWithNavController(navController!!)
 
 //        supportActionBar?.hide()
     }

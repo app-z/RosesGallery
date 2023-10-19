@@ -6,13 +6,19 @@ import com.galeryalina.data.PictureEntity
 import java.util.*
 
 @Dao
-interface GaleryDao {
+interface GalleryDao {
 
     @Query("SELECT * FROM Pictures")
     fun getAllPictures(): List<PictureEntity>
 
     @Query("SELECT * FROM Pictures WHERE author_id = :authorId")
     fun getPicturesByAuthor(authorId: Int): List<PictureEntity>
+
+    @Query("SELECT * FROM Pictures WHERE id = :pictureId")
+    fun getPicturesById(pictureId: Int): PictureEntity
+
+    @Query("SELECT * FROM Authors WHERE id = :autorId")
+    fun getAuthorById(autorId: Int): AuthorsEntity
 
     @Query("SELECT * FROM Authors")
     fun getAllAuthors(): List<AuthorsEntity>

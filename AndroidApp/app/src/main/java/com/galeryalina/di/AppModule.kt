@@ -3,7 +3,7 @@ package com.galeryalina.di
 import android.content.Context
 import com.galeryalina.remote.ApiServices
 import com.galeryalina.Constants
-import com.galeryalina.db.GaleryDao
+import com.galeryalina.db.GalleryDao
 import com.galeryalina.local.LocalDataSource
 import com.galeryalina.db.GaleryDatabase
 import com.galeryalina.domain.repository.GalleryRepository
@@ -34,7 +34,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideBookingDao(db: GaleryDatabase): GaleryDao = db.dao()
+    fun provideBookingDao(db: GaleryDatabase): GalleryDao = db.dao()
 
     @Singleton
     @Provides
@@ -78,7 +78,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(spaceXDao: GaleryDao): LocalDataSource {
+    fun provideLocalDataSource(spaceXDao: GalleryDao): LocalDataSource {
         return LocalDataSource(spaceXDao)
     }
 }

@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface GalleryRepository {
     fun getAllPictures(): Flow<ResponseResult<List<Picture>>>
+    fun getPicturesById(pictureId: Int): Flow<ResponseResult<Picture?>>
     fun getPicturesByAuthor(authorId: Int): Flow<ResponseResult<List<Picture>>>
     fun getAuthors(): Flow<ResponseResult<List<Author>>>
 }

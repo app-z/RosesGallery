@@ -16,11 +16,15 @@
 
 package com.galeryalina.data
 
+import android.os.Parcelable
 import android.util.Size
 import androidx.compose.runtime.Immutable
+import androidx.versionedparcelable.ParcelField
+import kotlinx.parcelize.Parcelize
 import java.util.Date
 
 @Immutable
+//@Parcelize
 data class Picture(
     val id: Long,
     val authorId: Long,
@@ -33,6 +37,7 @@ data class Picture(
     val tags: Set<String> = emptySet(),
     val dateAdded: Date? = null
 )
+    //: Parcelable
 
 @Immutable
 data class Author(
