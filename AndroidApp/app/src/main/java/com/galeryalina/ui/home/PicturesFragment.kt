@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,8 +33,6 @@ class PicturesFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val picturesViewModel: PicturesViewModel by viewModels()
@@ -51,10 +47,6 @@ class PicturesFragment : Fragment() {
         val root: View = binding.root
         return root
     }
-
-//    var mutableshowDetail = false
-// var showDetail by remember { mutableStateOf(mutableshowDetail) }
-
 
     private fun itemClick(itemId: Int) {
         Timber.d("Item click $itemId")
@@ -80,16 +72,12 @@ class PicturesFragment : Fragment() {
                         is ResponseResult.Error -> pictures.exception
                         is ResponseResult.Loading -> Timber.d("Loading...")
                     }
-
-
                 }
             }
         }
 
         picturesViewModel.requestPictures()
-
     }
-
 
 
     private fun showPictureList(pictures: List<Picture>) {
@@ -101,15 +89,13 @@ class PicturesFragment : Fragment() {
                 ComposeGalleryAppTheme {
                     // A surface container using the 'background' color from the theme
                     Surface(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .statusBarsPadding()
+                            .navigationBarsPadding(),
                         color = MaterialTheme.colorScheme.background
                     ) {
                         Pictures(pictures)
                     }
-
-//                    if(showDetail) {
-//                        DetailScreen()
-//                    }
                 }
 
             }
@@ -120,12 +106,10 @@ class PicturesFragment : Fragment() {
     @Preview
     @Composable
     fun ShowPicturesPreview() {
-//        showPicture(listOf(
-//            Picture(id = 1, authorId = 2, "Pic1", "", 10000),
-//            Picture(id = 2, authorId = 3, "Pic2", "", 20000))
-//        )
-
-//        PictureItem(Picture(id = 1, authorId = 2, "Pic1", "", 10000), clicker = null)
+        Pictures(listOf(
+            Picture(id = 1, authorId = 2, "Pic1", "", 10000),
+            Picture(id = 2, authorId = 3, "Pic2", "", 20000))
+        )
     }
 
 

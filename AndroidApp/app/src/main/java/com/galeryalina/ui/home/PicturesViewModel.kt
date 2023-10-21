@@ -32,13 +32,6 @@ class PicturesViewModel @Inject constructor(
         }
     }
 
-
-//    val picture = _picture.stateIn(
-//        scope = viewModelScope,
-//        started = SharingStarted.WhileSubscribed(5000),
-//        initialValue = ResponseResult.Loading
-//    )
-
     val pictures = _pictures.asSharedFlow()
 
     fun requestPictures() {

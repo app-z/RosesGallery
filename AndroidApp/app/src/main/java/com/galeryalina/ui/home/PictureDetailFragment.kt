@@ -5,18 +5,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Image
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
+import coil.ImageLoader
+import coil.compose.AsyncImage
 import com.example.composegenapp.ui.theme.ComposeGalleryAppTheme
 import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
@@ -87,6 +97,17 @@ class PictureDetailFragment : Fragment() {
                         color = MaterialTheme.colorScheme.background
                     ) {
                         Text(text = picture.name)
+
+                        Box(modifier = Modifier.padding(8.dp)) {
+                            AsyncImage(
+                                placeholder = rememberVectorPainter(Icons.Filled.Image),
+                                model = picture.imageUrl,
+                                //imageVector = Icons.Filled.Rocket,
+                                contentDescription = null,
+                                contentScale = ContentScale.FillWidth,
+                                modifier = Modifier.size(350.dp)
+                            )
+                        }
                     }
                 }
             }
