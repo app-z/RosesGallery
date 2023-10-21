@@ -24,13 +24,13 @@ class PicturesViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _pictures = MutableSharedFlow<ResponseResult<List<Picture>>>()
-        .apply {
-        viewModelScope.launch {
-            getGalleryUseCase.getAllPictures().collect{
-                emit(it)
-            }
-        }
-    }
+//        .apply {
+//        viewModelScope.launch {
+//            getGalleryUseCase.getAllPictures().collect{
+//                emit(it)
+//            }
+//        }
+//    }
 
     val pictures = _pictures.asSharedFlow()
 
