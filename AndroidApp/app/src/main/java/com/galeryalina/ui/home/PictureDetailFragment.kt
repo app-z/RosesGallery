@@ -4,34 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Image
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ViewCompositionStrategy
-import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavArgs
-import androidx.navigation.fragment.navArgs
-import coil.ImageLoader
-import coil.compose.AsyncImage
-import com.example.composegenapp.ui.theme.ComposeGalleryAppTheme
+import com.galeryalina.MainActivity
 import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
-import com.galeryalina.databinding.FragmentNotificationsBinding
 import com.galeryalina.databinding.FragmentPictureDetailBinding
+import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -47,7 +32,7 @@ class PictureDetailFragment : Fragment() {
 
     private val pictureDetailViewModel: PictureDetailViewModel by viewModels()
 
-    private val args: NavArgs by navArgs()
+//    private val args: NavArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,7 +52,7 @@ class PictureDetailFragment : Fragment() {
 
                 when (result) {
                     is ResponseResult.Success -> {
-                        if (result.response != null) {
+                        result.response?.let {
                             showPicture(picture = result.response)
                         }
                     }
@@ -79,10 +64,14 @@ class PictureDetailFragment : Fragment() {
         }
 
         val pictureId = arguments?.getString("pictureId", "0")
-        Timber.d("arguments = ${arguments}")
+        Timber.d("arguments = $arguments")
 
-        pictureDetailViewModel.requestPictureById(pictureId?.toInt()!!)
+        pictureId?.let {
+            pictureDetailViewModel.requestPictureById(pictureId.toInt())
+        }
     }
+
+
 
     private fun showPicture(picture: Picture) {
         binding.composeView.apply {
@@ -96,18 +85,10 @@ class PictureDetailFragment : Fragment() {
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
                     ) {
-                        Text(text = picture.name)
 
-                        Box(modifier = Modifier.padding(8.dp)) {
-                            AsyncImage(
-                                placeholder = rememberVectorPainter(Icons.Filled.Image),
-                                model = picture.imageUrl,
-                                //imageVector = Icons.Filled.Rocket,
-                                contentDescription = null,
-                                contentScale = ContentScale.FillWidth,
-                                modifier = Modifier.size(350.dp)
-                            )
-                        }
+                        SnackDetail(picture.id, {
+                            (requireActivity() as MainActivity).navigateBack()
+                        }, {}, picture)
                     }
                 }
             }

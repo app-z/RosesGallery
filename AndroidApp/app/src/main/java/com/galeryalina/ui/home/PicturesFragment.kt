@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -18,7 +18,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.composegenapp.ui.theme.ComposeGalleryAppTheme
+import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import com.galeryalina.MainActivity
 import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
@@ -102,13 +102,12 @@ class PicturesFragment : Fragment() {
         }
     }
 
-
     @Preview
     @Composable
     fun ShowPicturesPreview() {
         Pictures(listOf(
-            Picture(id = 1, authorId = 2, "Pic1", "", 10000),
-            Picture(id = 2, authorId = 3, "Pic2", "", 20000))
+            Picture(id = 1, authorId = 2, "Pic1", null, "", 10000),
+            Picture(id = 2, authorId = 3, "Pic2", null,"", 20000))
         )
     }
 

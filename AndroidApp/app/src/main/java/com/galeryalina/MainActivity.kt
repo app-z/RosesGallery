@@ -22,16 +22,7 @@ class MainActivity : AppCompatActivity() { //ComponentActivity
     private lateinit var binding: ActivityMainBinding
 
 
-    var navController: NavController? = null
-
-    fun navigateToDetail(id: Int) {
-        val request = NavDeepLinkRequest.Builder
-            .fromUri("android-app://androidx.navigation.app/profile/$id".toUri())
-            .build()
-//        val bundle = bundleOf("amount" to id)
-
-        navController?.navigate(request)
-    }
+    private var navController: NavController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,5 +44,17 @@ class MainActivity : AppCompatActivity() { //ComponentActivity
         navView.setupWithNavController(navController!!)
 
 //        supportActionBar?.hide()
+    }
+
+    fun navigateToDetail(id: Int) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://androidx.navigation.app/profile/$id".toUri())
+            .build()
+        navController?.navigate(request)
+    }
+
+
+    fun navigateBack() {
+        navController?.navigateUp()
     }
 }

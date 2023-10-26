@@ -33,7 +33,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.composegenapp.ui.theme.ComposeGalleryAppTheme
+import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import com.galeryalina.R
 import com.galeryalina.data.Picture
 
@@ -121,8 +121,8 @@ fun itemClick_(itemId: Int){}
 fun PreviewPictures() {
     ComposeGalleryAppTheme {
         val listPict = listOf(
-            Picture(id = 1, authorId = 2, "Pic1", "", 10000),
-            Picture(id = 2, authorId = 3, "Pic2", "", 20000))
+            Picture(id = 1, authorId = 2, "Pic1", null,"", 10000),
+            Picture(id = 2, authorId = 3, "Pic2", null ,"", 20000))
 
         PictureCardList(listPict, ::itemClick_)
     }

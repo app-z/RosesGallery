@@ -10,6 +10,7 @@ data class PictureEntity(
     @PrimaryKey @ColumnInfo(name = "id") val id: Long,
     @ColumnInfo(name = "author_id") val authorId: Long,
     @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "detail") val detail: String? = null,
     @ColumnInfo(name = "image_url") val imageUrl: String,
     @ColumnInfo(name = "price") val price: Long,
     @ColumnInfo(name = "is_unique") var isUnique: Boolean = true,
@@ -22,6 +23,7 @@ data class PictureEntity(
 data class AuthorsEntity(
     @PrimaryKey @ColumnInfo(name = "id") val id: Long,
     @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "story") val story: String? = null,
     @ColumnInfo(name = "photo_url") val photoUrl: String? = null,
     @ColumnInfo(name = "date_of_birth") var dateOfBirth: Date? = null,
     @ColumnInfo(name = "pictures_ids") var picturesIds: List<Long>? = null

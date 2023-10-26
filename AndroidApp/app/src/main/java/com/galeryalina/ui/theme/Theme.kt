@@ -1,4 +1,4 @@
-package com.example.composegenapp.ui.theme
+package com.galeryalina.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -10,12 +10,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import com.galeryalina.ui.theme.Pink40
-import com.galeryalina.ui.theme.Pink80
-import com.galeryalina.ui.theme.Purple40
-import com.galeryalina.ui.theme.Purple80
-import com.galeryalina.ui.theme.PurpleGrey40
-import com.galeryalina.ui.theme.PurpleGrey80
+import com.example.composegenapp.ui.theme.Typography
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,

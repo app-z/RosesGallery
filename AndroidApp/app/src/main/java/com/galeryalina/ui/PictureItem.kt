@@ -66,10 +66,11 @@ fun PictureItem_(picture: Picture, clicker: RowClick?) {
 
 @Preview
 @Composable
-fun PreviewMessageCard() {
+fun PreviewPicture() {
     PictureItem_(picture =
     Picture(1,
         2, "Author",
+        null,
         "http",
         10000,
         true),

@@ -12,5 +12,11 @@
     <string name="no_results_found">No results found!</string>
     <string name="price_template">Price %d rub</string>
     <string name="title_picture_detail">Picture detail</string>
+    <string name="detail_header">detail header ыекштп</string>
+    <string name="detail_placeholder">detail placeholder string</string>
+    <string name="detail_placeholder_long">detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string detail placeholder string </string>
+    <string name="ingredients">Ingredienrs\n</string>
+    <string name="see_more">See more</string>
+    <string name="see_less">See less</string>
 
 </resources>
