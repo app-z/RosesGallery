@@ -22,10 +22,10 @@
         tools:layout="@layout/fragment_authors" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.galeryalina.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_address"
+        android:name="com.galeryalina.ui.address.AddressFragment"
+        android:label="@string/title_address"
+        tools:layout="@layout/fragment_address" />
 
     <fragment
         android:id="@+id/navigation_picture_detail"
@@ -36,7 +36,7 @@
             android:id="@+id/deepLink"
             app:action="PICTURE_DETAIL"
             android:autoVerify="true"
-            app:uri="android-app://androidx.navigation.app/profile/{pictureId}" />
+            app:uri="android-app://picture-gallery.ru/detail/{pictureId}" />
     </fragment>
 
 </navigation>

@@ -1,7 +1,11 @@
-package com.galeryalina.data
+package com.galeryalina.domain
 
 import com.example.spacex.data.response.AuthorsResult
 import com.example.spacex.data.response.PictureResult
+import com.galeryalina.data.AuthorsEntity
+import com.galeryalina.data.PictureEntity
+import com.galeryalina.domain.model.Author
+import com.galeryalina.domain.model.Picture
 
 
 fun PictureResult.mapToDomain() = Picture(
@@ -26,28 +30,6 @@ fun PictureResult.mapToEntity() = PictureEntity(
     isUnique = isUnique,
     tagline = tagline,
     dateAdded = dateAdded
-)
-
-
-fun PictureEntity.mapToDomain() = Picture(
-    id = id,
-    authorId = authorId,
-    name = name,
-    detail = detail,
-    imageUrl = imageUrl,
-    price = price,
-    isUnique = isUnique,
-    tagline = tagline,
-    dateAdded = dateAdded
-)
-
-fun AuthorsResult.mapToDomain() = Author(
-    id = id,
-    name = name,
-    story = story,
-    photoUrl = imageUrl,
-    dateOfBirth = dateOfBirth,
-    pictureIds = pictureIds
 )
 
 

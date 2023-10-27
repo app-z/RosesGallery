@@ -1,11 +1,12 @@
 package com.galeryalina.domain.repository
 
-import com.galeryalina.data.Author
-import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
 import com.galeryalina.data.common.onFlowStarts
-import com.galeryalina.data.mapToDomain
-import com.galeryalina.data.mapToEntity
+import com.galeryalina.domain.mapToDomain
+import com.galeryalina.domain.mapToEntity
+import com.galeryalina.domain.model.Author
+import com.galeryalina.domain.model.Picture
+import com.galeryalina.domain.model.mapToDomain
 import com.galeryalina.local.LocalDataSource
 import com.galeryalina.remote.RemoteDataSource
 import kotlinx.coroutines.Dispatchers

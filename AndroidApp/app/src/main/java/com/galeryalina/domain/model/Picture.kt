@@ -1,17 +1,33 @@
 package com.galeryalina.domain.model
 
-import androidx.room.ColumnInfo
-import com.google.gson.annotations.SerializedName
+import android.util.Size
+import androidx.compose.runtime.Immutable
+import com.galeryalina.data.PictureEntity
 import java.util.*
 
-//data class Picture(
-//    // @SerializedName @ColumnInfo(name = "id") val id: Long,
-//    @ColumnInfo(name = "author_id") val authorId: Int,
-//    @ColumnInfo(name = "name") val name: String,
-//    @ColumnInfo(name = "image_url") val imageUrl: String,
-//    @ColumnInfo(name = "price") val price: Long,
-//    @ColumnInfo(name = "is_unique") var isUnique: Boolean = true,
-////    @ColumnInfo(name = "size") var size: Size,
-//    @ColumnInfo(name = "tagline") var tagline: String,
-//    @ColumnInfo(name = "date_added") var dateAdded: Date? = null
-//)
+@Immutable
+data class Picture(
+    val id: Long,
+    val authorId: Long,
+    val name: String,
+    val detail: String?,
+    val imageUrl: String,
+    val price: Long,
+    val isUnique: Boolean = true,
+    val size: Size = Size(0, 0),
+    val tagline: String = "",
+    val tags: Set<String> = emptySet(),
+    val dateAdded: Date? = null
+)
+
+fun PictureEntity.mapToDomain() = Picture(
+    id = id,
+    authorId = authorId,
+    name = name,
+    detail = detail,
+    imageUrl = imageUrl,
+    price = price,
+    isUnique = isUnique,
+    tagline = tagline,
+    dateAdded = dateAdded
+)

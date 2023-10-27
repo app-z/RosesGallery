@@ -23,7 +23,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -74,8 +73,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.galeryalina.R
+import com.galeryalina.domain.model.Picture
 import com.galeryalina.ui.theme.ComposeGalleryAppTheme
-import com.galeryalina.data.Picture
 import com.galeryalina.ui.utils.formatPrice
 import kotlin.math.max
 import kotlin.math.min
@@ -96,7 +95,8 @@ fun SnackDetail(
     snackId: Long,
     upPress: () -> Unit,
     onClickAddToCart: (itemId: Long) -> Unit,
-    picture: Picture) {
+    picture: Picture
+) {
 
     Box(Modifier.fillMaxSize()) {
         val scroll = rememberScrollState(0)

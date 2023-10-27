@@ -1,15 +1,12 @@
 package com.galeryalina.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
+import com.galeryalina.domain.model.Picture
 import com.galeryalina.domain.usecase.GetGalleryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,7 +27,4 @@ class PictureDetailViewModel @Inject constructor(
             }
         }
     }
-
-
-
 }

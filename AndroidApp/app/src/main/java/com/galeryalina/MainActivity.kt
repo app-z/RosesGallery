@@ -4,17 +4,13 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.galeryalina.databinding.ActivityMainBinding
-import com.galeryalina.domain.usecase.GetGalleryUseCase
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() { //ComponentActivity
@@ -37,22 +33,19 @@ class MainActivity : AppCompatActivity() { //ComponentActivity
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_address
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController!!)
-
-//        supportActionBar?.hide()
     }
 
     fun navigateToDetail(id: Int) {
         val request = NavDeepLinkRequest.Builder
-            .fromUri("android-app://androidx.navigation.app/profile/$id".toUri())
+            .fromUri("android-app://picture-gallery.ru/detail/$id".toUri())
             .build()
         navController?.navigate(request)
     }
-
 
     fun navigateBack() {
         navController?.navigateUp()

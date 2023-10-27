@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.galeryalina.MainActivity
-import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
 import com.galeryalina.databinding.FragmentPictureDetailBinding
+import com.galeryalina.domain.model.Picture
 import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

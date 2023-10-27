@@ -1,8 +1,8 @@
 package com.galeryalina.domain.repository
 
-import com.galeryalina.data.Author
-import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
+import com.galeryalina.domain.model.Author
+import com.galeryalina.domain.model.Picture
 import kotlinx.coroutines.flow.Flow
 
 interface GalleryRepository {

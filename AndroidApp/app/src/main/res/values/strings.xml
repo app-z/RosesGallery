@@ -2,7 +2,7 @@
     <string name="app_name">GaleryAlina</string>
     <string name="title_pictures">Pictures</string>
     <string name="title_authors">Authors</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_address">Address</string>
 
     <string name="error_unexpected_message">Unexpected error occurred. We are working on it.</string>
     <string name="error_client_unexpected_message">Something technically is wrong. We are working on it.</string>
@@ -18,5 +18,9 @@
     <string name="ingredients">Ingredienrs\n</string>
     <string name="see_more">See more</string>
     <string name="see_less">See less</string>
+
+    <string name="address_gallery">+7 (952) 097-03-43 \nПолковая ул., 1/25, Пушкин \nномер 316, ТЦ Константиновский, этаж 3</string>
+    <string name="quantity">Шт</string>
+    <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
 
 </resources>

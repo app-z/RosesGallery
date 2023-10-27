@@ -20,9 +20,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import com.galeryalina.MainActivity
-import com.galeryalina.data.Picture
 import com.galeryalina.data.common.ResponseResult
 import com.galeryalina.databinding.FragmentHomeBinding
+import com.galeryalina.domain.model.Picture
 import com.galeryalina.ui.PictureCardList
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

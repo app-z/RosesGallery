@@ -1,4 +1,4 @@
-package com.galeryalina.ui.notifications
+package com.galeryalina.ui.address
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class NotificationsViewModel @Inject constructor(
+class AddressViewModel @Inject constructor(
     private var getGalleryUseCase: GetGalleryUseCase
 ) : ViewModel() {
 

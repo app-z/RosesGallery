@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.galeryalina.ui.theme.ComposeGalleryAppTheme
 import com.galeryalina.R
-import com.galeryalina.data.Picture
+import com.galeryalina.domain.model.Picture
 
 
 @Composable
